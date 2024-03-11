@@ -1,0 +1,25 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Order Confirmation";
+}
+
+<h2>Order Confirmation</h2>
+
+@if (Model.Any())
+{
+    <div class="alert alert-success" role="alert">
+        Your order:
+        <ul>
+            @foreach (var product in Model)
+            {
+                <li>Name: @product.Name, Quantity: @product.Quantity</li>
+            }
+        </ul>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning" role="alert">
+        No products ordered.
+    </div>
+}

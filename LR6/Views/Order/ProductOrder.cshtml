@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Product Order";
+}
+
+<h2>Product Order</h2>
+
+<form method="post" action="/Order/Order">
+    @for (int i = 1; i < ViewBag.Quantity; i++)
+    {
+        <div class="form-group">
+            <label for="products[@i].Name">Product @i:</label>
+            <input type="text" class="form-control" id="products[@i].Name" name="products[@i].Name" placeholder="Enter product name">
+        </div>
+        <div class="form-group">
+            <label for="products[@i].Quantity">Quantity:</label>
+            <input type="number" class="form-control" id="products[@i].Quantity" name="products[@i].Quantity" placeholder="Enter quantity">
+        </div>
+    }
+    <button type="submit" class="btn btn-primary">Order</button>
+</form>
